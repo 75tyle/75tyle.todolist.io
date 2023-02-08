@@ -17,6 +17,7 @@
                 
             <input type="text" class="user_text mb-2" placeholder="Enter your task">
             <button class="btn btn-primary add_task">Add</button>
+            <button class="btn btn-primary updt_task" onclick="update()">UPDATE</button>
             </div>
             <h2>list</h2>
             <div style="overflow: auto; max-height: 250px;" 
@@ -27,9 +28,9 @@
                     <table class="table table-light" >
                         <thead>
                           <tr>
-                            <th scope="col">NO.</th>
-                            <th scope="col">TASK.</th>
-                            <th scope="col">Action.</th>
+                            <th scope="col-2">NO.</th>
+                            <th scope="col-6">TASK.</th>
+                            <th scope="col-4">Action.</th>
                           </tr>
                         </thead>
                         <tbody  class="list_data">
