@@ -1,6 +1,12 @@
 $('.updt_task').hide()
+$('.progress_box').hide()
+$('.complete_box').hide()
+$('.popup').css('display','none')
 var list = []
 var updt 
+var progress = []
+var complete = []
+var index_no ;
 $(document).ready(function(){
   
     const urlParams = new URLSearchParams(window.location.search);
@@ -45,7 +51,7 @@ function list_data(){
     for (var i = 0; i < list.length; i++) {
        var j = i+1
             var data = i;
-        html+='<tr><td>'+j+'</td><td>'+list[i]+'</td><td class="d-flex" ><i class="fa-solid fa-pen p-1" onclick="edit('+i+')"></i> <i class="fa-solid fa-eraser p-1" onclick="delet('+i+')"></i></td> </tr>'
+        html+='<tr><td>'+j+'</td><td onclick="status('+i+')" >'+list[i]+'</td><td class="d-flex" ><i class="fa-solid fa-pen p-1" onclick="edit('+i+')"></i> <i class="fa-solid fa-eraser p-1" onclick="delet('+i+')"></i></td> </tr>'
 
       }
       $('.list_data').html(html)
@@ -81,4 +87,47 @@ function update(){
     alert("task cannot be empty!")
 }
 
+}
+
+function status(id){
+    index_no = id
+    $('.popup').css('display','flex')
+    $('.data_pop').html(list[id])
+    
+}
+
+function navigate(id){
+console.log(id)
+
+
+if(id == "task"){
+    $('.progress_box').hide()
+    $('.complete_box').hide()
+    $('.user_list').show()
+}else if(id == "progress"){
+    $('.complete_box').hide()
+    $('.user_list').hide()
+    $('.progress_box').show()
+}else if(id == "COMPLETE"){
+    $('.user_list').hide()
+    $('.progress_box').hide()
+    $('.complete_box').show()
+}
+else{
+    $('.popup').css('display','none')
+}
+
+
+}
+
+function task_status(id){
+    if(id == 'progress'){
+
+        progress.push(list[index_no])
+        delet(index_no)
+    }else if(id == "COMPLETE"){
+        complete.push(list[index_no])
+        delet(index_no)
+    }
+    console.log(progress)
 }
