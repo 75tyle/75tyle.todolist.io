@@ -119,15 +119,47 @@ else{
 
 
 }
+function progress_fun(){
+   
+    delet(index_no)
+    var html = '';
+    for (var i = 0; i < progress.length; i++) {
+       var j = i+1
+            var data = i;
+        html+='<tr><td>'+j+'</td><td onclick="status('+i+')" >'+progress[i]+'</td><td class="d-flex" ><i class="fa-solid fa-pen p-1" onclick="edit('+i+')"></i> <i class="fa-solid fa-eraser p-1" onclick="delet('+i+')"></i></td> </tr>'
+
+      }
+      $('.progress_data').html(html)
+      console.log(html)
+}
+
+function complete_fun(){
+    console.log(index_no)
+    complete.push(progress[index_no])
+    progress.splice(index_no,1)
+    progress_fun();
+
+    delet(index_no)
+    var html = '';
+    for (var i = 0; i < complete.length; i++) {
+       var j = i+1
+            var data = i;
+        html+='<tr><td>'+j+'</td><td onclick="status('+i+')" >'+complete[i]+'</td><td class="d-flex" ><i class="fa-solid fa-pen p-1" onclick="edit('+i+')"></i> <i class="fa-solid fa-eraser p-1" onclick="delet('+i+')"></i></td> </tr>'
+
+      }
+      $('.complete_data').html(html)
+      console.log(html)
+}
 
 function task_status(id){
     if(id == 'progress'){
-
         progress.push(list[index_no])
-        delet(index_no)
+        progress_fun();
     }else if(id == "COMPLETE"){
-        complete.push(list[index_no])
-        delet(index_no)
+       
+        complete_fun();
+        
+       
     }
-    console.log(progress)
+
 }
