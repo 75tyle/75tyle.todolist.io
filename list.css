@@ -1,5 +1,6 @@
 body{
-    background-color: tomato;
+    background-color: #614E71
+    ;
 }
 
 .action{
@@ -9,4 +10,29 @@ body{
 
 .table{
     width: 200px;
+}
+.popup{
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.pop_box{
+    height: 400px;
+    width: 400px;
+    max-width: 500px;
+    max-height: 400px;
+    background-color: aliceblue;
+    position: relative;
+}
+.close{
+    height: 40px;
+    width: 40px;
+    right: -30px;
+    top: -30px;
+    border-radius: 20px;
+}
+.data{
+    color: red;
 }
